@@ -1,7 +1,6 @@
 from pathlib import Path
 from utils import read_input_file
 from operator import add, sub, mul
-from functools import partial
 
 
 file_path = Path(__file__).parent.absolute()
