@@ -82,6 +82,7 @@ For each group, count the number of questions to which everyone answered "yes". 
 import os
 from functools import reduce
 
+
 def part1(answers_batch):
     ga = [len(set(list(''.join(x.split('\n'))))) for x in answers_batch]
     return sum(ga)

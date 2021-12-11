@@ -53,7 +53,9 @@ What is the ID of your seat?
 
 '''
 import os
+
 from funcy import partial
+
 
 def get_zone_list(lower, upper, direction):
     direction = list(direction)

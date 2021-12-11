@@ -64,7 +64,6 @@ import os
 import re
 from itertools import compress
 
-
 mandatory_fields = {
     'byr': r'^(19[2-9][0-9]|200[0-2])$',
     'iyr': r'^(201[0-9]|2020)$',

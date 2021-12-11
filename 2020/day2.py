@@ -20,6 +20,7 @@ their respective policies.
 import re
 from collections import namedtuple
 
+
 def get_count(string, val):
     count = {}
     for char in string:
