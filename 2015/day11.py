@@ -25,7 +25,7 @@ Your puzzle input is hepxcrrq.
 """
 
 import re
-
+from itertools import product
 
 def increment_char(_char: str, value: int = 1):
     if value == 0:
@@ -103,9 +103,38 @@ Santa's password expired again. What's the next one?
 """
 
 
+"""
+Different Solution
+"""
+letters = "abcdefghjkmnpqrstuvwxyz"
+triplets = set("".join(triplet) for triplet in zip(letters, letters[1:], letters[2:]))
+r = re.compile(rf"([{letters}])\1.*([{letters}])\2")
+
+def solve(password):
+    found = None
+
+    for i in range(1, len(password) + 1):
+        if password[-i] == letters[-1]:
+            next # No idea what this is doing
+
+        prefix = password[:-i]
+
+        for suffix in product(letters[letters.index(password[-i]) + 1 :], *([letters] * (i - 1))):
+            candidate = prefix + "".join(suffix)
+            if r.search(candidate) and any(candidate[j : j + 3] in triplets for j in range(len(candidate) - 2)):
+                found = candidate
+                break
+
+        if found is not None:
+            break
+
+    return found
+
 if __name__=="__main__":
     old_pwd = "hepxcrrq"
     x = part1(old_pwd)
     print(x)
     y = part1(x)
     print(y)
+    z = solve(old_pwd)
+    print(z)
