@@ -52,7 +52,7 @@ def flatten(data: List, ignore = None):
             yield x
         elif isinstance(x, list):
             yield from flatten(x, ignore)
-        elif isinstance(x, dict) and ignore not in x.keys():
+        elif isinstance(x, dict) and ignore not in x.values():
             yield from flatten(x.values(), ignore)
         else:
             yield 0
