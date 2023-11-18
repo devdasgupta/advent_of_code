@@ -7,7 +7,7 @@ def read_input_file(filepath: Optional = None, delimiter: str = '\n', test_input
         with open(filepath, 'r') as fr:
             val = fr.read()
 
-        val = [x for x in val.split(delimiter)]
+        val = [x for x in val.strip().split(delimiter)]
 
         return val
 
