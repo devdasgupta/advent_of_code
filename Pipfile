@@ -9,6 +9,7 @@ verify_ssl = true
 funcy = "*"
 pyparsing = "*"
 numpy = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.9"
