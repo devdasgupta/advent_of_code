@@ -61,6 +61,7 @@ def get_cities():
 
 def part1():
     cities = get_cities()
+    # print(json.dumps(cities, indent=4))
 
     tot_distance_list = []
     minimal = 10000000

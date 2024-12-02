@@ -114,14 +114,14 @@ def evaluate(data_dict: Dict, search_element: str):
         # print(f"Return value 1: {x1}")
         x2 = evaluate(data_dict, vals[2])
         # print(f"Return value 2: {x2}")
-        return irshift(x1, x2)
+        return rshift(x1, x2)
     elif 'LSHIFT' in rule:
         vals = [x.strip() for x in rule.split()]
         x1 = evaluate(data_dict, vals[0])
         # print(f"Return value 1: {x1}, x{type(vals[2])}x")
         x2 = evaluate(data_dict, vals[2])
         # print(f"Return value 2: {x2}")
-        return ilshift(x1, x2)
+        return lshift(x1, x2)
     else:
         return evaluate(data_dict, rule)
 

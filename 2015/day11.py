@@ -108,7 +108,8 @@ Different Solution
 """
 letters = "abcdefghjkmnpqrstuvwxyz"
 triplets = set("".join(triplet) for triplet in zip(letters, letters[1:], letters[2:]))
-r = re.compile(rf"([{letters}])\1.*([{letters}])\2")
+r = re.compile(r"([a-z])\1.*([a-z])\2")
+# r = re.compile(rf"([{letters}])\1.*([{letters}])\2")
 
 def solve(password):
     found = None
@@ -118,8 +119,9 @@ def solve(password):
             next # No idea what this is doing
 
         prefix = password[:-i]
-
+        print(i, letters[letters.index(password[-i]) + 1 :])
         for suffix in product(letters[letters.index(password[-i]) + 1 :], *([letters] * (i - 1))):
+            # print(suffix)
             candidate = prefix + "".join(suffix)
             if r.search(candidate) and any(candidate[j : j + 3] in triplets for j in range(len(candidate) - 2)):
                 found = candidate
@@ -132,9 +134,9 @@ def solve(password):
 
 if __name__=="__main__":
     old_pwd = "hepxcrrq"
-    x = part1(old_pwd)
-    print(x)
-    y = part1(x)
-    print(y)
+    # x = part1(old_pwd)
+    # print(x)
+    # y = part1(x)
+    # print(y)
     z = solve(old_pwd)
     print(z)
