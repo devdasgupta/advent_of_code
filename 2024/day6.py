@@ -217,7 +217,10 @@ Option six, put a tank of sovereign glue right next to the tank of universal sol
 #+----++..
 ......#O..
 
-It doesn't really matter what you choose to use as an obstacle so long as you and The Historians can put it into position without the guard noticing. The important thing is having enough options that you can find one that minimizes time paradoxes, and in this example, there are 6 different positions you could choose.
+It doesn't really matter what you choose to use as an obstacle so long as you and The Historians can put it into 
+position without the guard noticing. 
+The important thing is having enough options that you can find one that minimizes time paradoxes, and in this example, 
+there are 6 different positions you could choose.
 
 You need to get the guard stuck in a loop by adding a single new obstruction. How many different positions could you choose for this obstruction?
 """
@@ -267,14 +270,16 @@ def part2(lst):
 
     for i in range(n):
         for j in range(m):
-            if (i, j) == (y, x):
+            if lst[i][j] == "#" or lst[i][j] == "^":
                 continue
 
-            if lst[i][j] == ".":
-                lst[i] = lst[i][:j] + "#" + lst[i][j+1:]
-                loop_count += 1 if check_loop(lst) else 0
+            print(i, j, lst[i][j])
+            lst[i][j] = "#"
+        
+            if check_loop(lst):
+                loop_count += 1
 
-                lst[i] = lst[i][:j] + "." + lst[i][j+1:]
+            lst[i][j] = "."
 
     return loop_count
 
